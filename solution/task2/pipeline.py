@@ -242,7 +242,7 @@ def clean_generated_text(text: str) -> str:
         "Self-Incorrect, ORM Struggle with Discriminating Self-Generated Responses": (
             "Self-Incorrect: LRMs Struggle with Discriminating Self-Generated Responses"
         ),
-        "part of the IIII-2025 paper": "an academic conference paper",
+        "part of the AAAI-2025 paper": "an academic conference paper",
         "FLANUR2": "FLAN-UL2",
         "FLANTIFI": "FLAN-T5",
     }

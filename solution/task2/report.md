@@ -6,7 +6,7 @@ Total slides: 18
 
 ## Slide 1 (00:00-00:18)
 
-Slide content summary: Opening title slide introducing Dongwei Jiang’s presentation on the IIII-2025 paper "Self-Incorrect: LRMs Struggle with Discriminating Self-Generated Responses," a joint work with colleagues at Johns Hopkins University. The speaker frames the talk as being about the self-improvement capability of large language models.
+Slide content summary: Opening title slide introducing Dongwei Jiang’s presentation on the AAAI-2025 paper "Self-Incorrect: LRMs Struggle with Discriminating Self-Generated Responses," a joint work with colleagues at Johns Hopkins University. The speaker frames the talk as being about the self-improvement capability of large language models.
 
 Speaker notes: The presenter introduces themselves, names the paper and collaborators, and states the talk’s focus on self-improvement in large models.
 
