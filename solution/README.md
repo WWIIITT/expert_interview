@@ -21,9 +21,14 @@ Configure an OpenAI-compatible provider with environment variables:
 ```powershell
 $env:LLM_API_KEY="your-api-key"
 $env:LLM_BASE_URL="https://api.vectorengine.cn/v1"
-$env:LLM_MODEL="your-chat-model"
-$env:ASR_MODEL="your-audio-transcription-model"
+$env:LLM_MODEL="gpt-4o-mini"
+$env:ASR_MODEL="whisper-1"
 ```
+
+Recommended model choices:
+
+- `LLM_MODEL`: use `gpt-4o-mini` for a low-cost structured-summary run, or use a stronger chat model exposed by your VectorEngine account if available.
+- `ASR_MODEL`: use `whisper-1` first because this code requests `verbose_json`, which is useful for timestamps. If your provider supports newer OpenAI audio models, `gpt-4o-transcribe` or `gpt-4o-mini-transcribe` are also valid transcription model names, but they may not support the exact same verbose timestamp fields.
 
 Secrets are read only from the environment and are not stored in the repository.
 
@@ -48,7 +53,7 @@ Expected generated files:
 
 ## Approach
 
-The pipelines use shared modules for provider calls, schema validation, markdown rendering, and media handling. Provider chat calls target an OpenAI-compatible `/chat/completions` endpoint. Audio transcription targets an OpenAI-compatible `/audio/transcriptions` endpoint when credentials are configured.
+Each task directory contains its own pipeline code so the submission follows the requested structure directly. Provider chat calls target an OpenAI-compatible `/chat/completions` endpoint. Audio transcription targets an OpenAI-compatible `/audio/transcriptions` endpoint when credentials are configured.
 
 Task 2 uses `imageio-ffmpeg` to extract audio through a bundled FFmpeg binary and OpenCV to sample frames for slide-change detection. If optional media dependencies or credentials are missing, the scripts still generate deterministic, schema-valid fallback outputs with warnings instead of crashing.
 

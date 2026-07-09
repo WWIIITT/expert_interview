@@ -13,7 +13,7 @@ The scaled workflow is:
 5. Ask an LLM for structured summaries.
 6. Validate the output schema before writing JSON and Markdown.
 
-The implementation in `run.py` demonstrates the evolved contract on the original `talk.wav`. The shared modules are intentionally small: media helpers measure and normalize inputs, LLM helpers encapsulate provider access, schema helpers validate output, and markdown helpers render reviewer-friendly summaries.
+The implementation in `run.py` demonstrates the evolved contract on the original `talk.wav`. The task-local `pipeline.py` contains the media, provider, schema, and markdown helpers so the submitted folder layout mirrors the required assessment structure.
 
 ## Output Schema
 

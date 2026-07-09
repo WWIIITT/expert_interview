@@ -4,16 +4,23 @@ Source: `talk.wav`
 
 ## Key Topics
 
-- Conference talk transcription
-- Searchable audio summarization
-- LLM-based structured extraction
+- Intrinsic self-improvement in large language models
+- Separating generation and discrimination as two capabilities
+- Apples-to-apples evaluation framework for model outputs
+- Empirical results across mainstream models and tasks
+- Analysis of self-refinement and external feedback
+- Limitations and open questions
 
 ## Key Findings
 
-- The input file is talk.wav with an estimated duration of 695.0 seconds.
-- The pipeline separates transcription from summarization so each stage can be replaced independently.
-- A deterministic fallback keeps the submission reproducible when provider credentials are unavailable.
+- The talk argues that intrinsic self-improvement should be decomposed into generation and discrimination, since existing work often compares them with incompatible metrics.
+- A fair evaluation framework was introduced: sample multiple generations, score one sampled output for generation, then ask the model to choose the best among the same samples and score the selected output for discrimination.
+- Across 56 cases, the proposed difference metric was usually small or negative, and the null hypothesis of reliable discrimination advantage was not rejected in 54 of 56 tests.
+- Scaling helped discrimination somewhat, but larger models still were not consistently better at discriminating than at generating.
+- Non-autoregressive or differently pretrained models such as FLAN-UL2 and FLAN-T5 appeared to show larger discrimination gains, suggesting training objective matters.
+- Replications of self-refinement settings suggested that some gains may come from evaluation loopholes, length expansion, or weakly aligned feedback rather than genuine self-improvement.
+- The overall conclusion is that current LRMs do not reliably prefer or identify better self-generated alternatives, so the evidence does not support intrinsic self-improvement in the strong sense.
 
 ## Conclusion
 
-The talk can be made searchable by transcribing the audio, validating a compact summary schema, and rendering both machine-readable and human-readable outputs.
+The speaker presents a framework and experiments showing that, for intrinsic self-improvement, large language models are not consistently better at discriminating among their own candidate responses than at generating them. The talk argues this resolves part of the debate by showing that apparent self-improvement claims often depend on external feedback or evaluation artifacts, while intrinsic self-improvement remains unproven.

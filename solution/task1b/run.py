@@ -1,16 +1,9 @@
 from __future__ import annotations
 
 import argparse
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
-
-from solution.shared.markdown import render_scaled_markdown
-from solution.shared.pipeline import summarize_audio_scaled
-from solution.shared.schemas import write_json
+from pipeline import render_scaled_markdown, summarize_audio_scaled, write_json
 
 
 def main() -> None:

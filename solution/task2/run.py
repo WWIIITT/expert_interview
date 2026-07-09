@@ -1,23 +1,20 @@
 from __future__ import annotations
 
 import argparse
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
-
-from solution.shared.llm import chat_json, transcribe_audio
-from solution.shared.markdown import render_task2_report
-from solution.shared.media import (
+from pipeline import (
+    SlideReport,
+    chat_json,
     detect_slide_ranges,
     extract_audio_with_bundled_ffmpeg,
     format_timestamp,
     read_mp4_duration,
+    render_task2_report,
     temporary_wav_path,
+    transcribe_audio,
+    write_json,
 )
-from solution.shared.schemas import SlideReport, write_json
 
 
 def _segment_text_for_range(transcript: dict, start_seconds: float, end_seconds: float) -> str:
