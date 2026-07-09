@@ -6,6 +6,7 @@ from pathlib import Path
 from pipeline import (
     SlideReport,
     chat_json,
+    clean_generated_text,
     detect_slide_ranges,
     extract_audio_with_bundled_ffmpeg,
     format_timestamp,
@@ -86,6 +87,8 @@ def build_slide_report(video_path: Path) -> SlideReport:
         response["slide_number"] = index
         response["start"] = fallback["start"]
         response["end"] = fallback["end"]
+        response["slide_summary"] = clean_generated_text(str(response["slide_summary"]))
+        response["speaker_notes"] = clean_generated_text(str(response["speaker_notes"]))
         slides.append(response)
 
     return SlideReport.from_dict({"total_slides": len(slides), "slides": slides})

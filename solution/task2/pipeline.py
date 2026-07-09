@@ -13,7 +13,7 @@ from typing import Any
 
 
 DEFAULT_BASE_URL = "https://api.vectorengine.cn/v1"
-DEFAULT_MODEL = "gpt-4o-mini"
+DEFAULT_MODEL = "gpt-5.2"
 DEFAULT_AUDIO_MODEL = "whisper-1"
 
 
@@ -147,7 +147,11 @@ def extract_audio_with_bundled_ffmpeg(video_path: Path, output_wav: Path) -> tup
     return True, "audio extracted with imageio-ffmpeg"
 
 
-def detect_slide_ranges(video_path: Path) -> list[SlideRange]:
+def detect_slide_ranges(
+    video_path: Path,
+    threshold: float = 14.0,
+    min_slide_seconds: float = 1.5,
+) -> list[SlideRange]:
     duration = read_mp4_duration(video_path) or 1.0
     try:
         import cv2
@@ -180,7 +184,7 @@ def detect_slide_ranges(video_path: Path) -> list[SlideRange]:
             if previous is not None:
                 diff = cv2.absdiff(previous, small).mean()
                 timestamp = frame_index / fps
-                if diff >= 28.0 and timestamp - slide_starts[-1] >= 4.0:
+                if diff >= threshold and timestamp - slide_starts[-1] >= min_slide_seconds:
                     slide_starts.append(timestamp)
             previous = small
         frame_index += 1
@@ -230,6 +234,21 @@ def chat_json(system_prompt: str, user_prompt: str, fallback: dict[str, Any]) ->
         return json.loads(body["choices"][0]["message"]["content"])
     except (KeyError, json.JSONDecodeError, urllib.error.URLError):
         return fallback
+
+
+def clean_generated_text(text: str) -> str:
+    replacements = {
+        "paper鈥檚": "paper's",
+        "Self-Incorrect, ORM Struggle with Discriminating Self-Generated Responses": (
+            "Self-Incorrect: LRMs Struggle with Discriminating Self-Generated Responses"
+        ),
+        "part of the IIII-2025 paper": "an academic conference paper",
+        "FLANUR2": "FLAN-UL2",
+        "FLANTIFI": "FLAN-T5",
+    }
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+    return text
 
 
 def transcribe_audio(audio_path: Path, duration_seconds: float) -> dict[str, Any]:

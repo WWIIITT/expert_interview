@@ -6,13 +6,13 @@ Total slides: 10
 
 ## Slide 1 (00:00-00:18)
 
-Slide content summary: Opening title slide introducing Dongwei Jiang and the paper "Self-Incorrect, ORM Struggle with Discriminating Self-Generated Responses," presented as a joint work with colleagues at Johns Hopkins University. The speaker frames the talk as being about the self-improvement capability of large language models.
+Slide content summary: Opening title slide introducing Dongwei Jiang and the paper "Self-Incorrect: LRMs Struggle with Discriminating Self-Generated Responses," presented as a joint work with colleagues at Johns Hopkins University. The speaker frames the talk as being about the self-improvement capability of large language models.
 
-Speaker notes: Speaker greets the audience, states their name, identifies the presentation as part of the IIII-2025 paper, and credits Johns Hopkins collaborators before briefly stating the topic focus.
+Speaker notes: Speaker greets the audience, states their name, identifies the presentation as an academic conference paper, and credits Johns Hopkins collaborators before briefly stating the topic focus.
 
 ## Slide 2 (00:18-00:51)
 
-Slide content summary: Introduces the paper’s focus on self-improvement in large language models and explains why it matters. The slide frames the topic as both a potential existential risk if AI surpasses human intelligence and an opportunity to build stronger, safer systems that drive new breakthroughs.
+Slide content summary: Introduces the paper's focus on self-improvement in large language models and explains why it matters. The slide frames the topic as both a potential existential risk if AI surpasses human intelligence and an opportunity to build stronger, safer systems that drive new breakthroughs.
 
 Speaker notes: The speaker motivates the research area by presenting two perspectives: concern about AI self-improvement leading to superintelligence and existential risk, and optimism that it could enable safer, more capable models. They conclude by noting that this is already an active area of research.
 
@@ -42,9 +42,9 @@ Speaker notes: This interval introduces the scale analysis and ends by teeing up
 
 ## Slide 7 (06:19-07:02)
 
-Slide content summary: The speaker introduces the question of why discrimination is not easier than generation and connects it to a sub-hypothesis about autoregressive training being more generation-like. They cite experiments on FLANUR2 and FLANTIFI, noting that both models are not purely autoregressively pretrained, and say the results support the hypothesis because their DGDIF values are sufficiently large.
+Slide content summary: The speaker introduces the question of why discrimination is not easier than generation and connects it to a sub-hypothesis about autoregressive training being more generation-like. They cite experiments on FLAN-UL2 and FLAN-T5, noting that both models are not purely autoregressively pretrained, and say the results support the hypothesis because their DGDIF values are sufficiently large.
 
-Speaker notes: This slide frames a contradiction around discrimination versus generation, then motivates it with a training-process hypothesis. It briefly reports supporting evidence from FLANUR2 and FLANTIFI before transitioning back to the contradiction.
+Speaker notes: This slide frames a contradiction around discrimination versus generation, then motivates it with a training-process hypothesis. It briefly reports supporting evidence from FLAN-UL2 and FLAN-T5 before transitioning back to the contradiction.
 
 ## Slide 8 (07:02-09:36)
 

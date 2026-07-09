@@ -5,14 +5,14 @@
       "slide_number": 1,
       "start": "00:00",
       "end": "00:18",
-      "slide_summary": "Opening title slide introducing Dongwei Jiang and the paper \"Self-Incorrect, ORM Struggle with Discriminating Self-Generated Responses,\" presented as a joint work with colleagues at Johns Hopkins University. The speaker frames the talk as being about the self-improvement capability of large language models.",
-      "speaker_notes": "Speaker greets the audience, states their name, identifies the presentation as part of the IIII-2025 paper, and credits Johns Hopkins collaborators before briefly stating the topic focus."
+      "slide_summary": "Opening title slide introducing Dongwei Jiang and the paper \"Self-Incorrect: LRMs Struggle with Discriminating Self-Generated Responses,\" presented as a joint work with colleagues at Johns Hopkins University. The speaker frames the talk as being about the self-improvement capability of large language models.",
+      "speaker_notes": "Speaker greets the audience, states their name, identifies the presentation as an academic conference paper, and credits Johns Hopkins collaborators before briefly stating the topic focus."
     },
     {
       "slide_number": 2,
       "start": "00:18",
       "end": "00:51",
-      "slide_summary": "Introduces the paper’s focus on self-improvement in large language models and explains why it matters. The slide frames the topic as both a potential existential risk if AI surpasses human intelligence and an opportunity to build stronger, safer systems that drive new breakthroughs.",
+      "slide_summary": "Introduces the paper's focus on self-improvement in large language models and explains why it matters. The slide frames the topic as both a potential existential risk if AI surpasses human intelligence and an opportunity to build stronger, safer systems that drive new breakthroughs.",
       "speaker_notes": "The speaker motivates the research area by presenting two perspectives: concern about AI self-improvement leading to superintelligence and existential risk, and optimism that it could enable safer, more capable models. They conclude by noting that this is already an active area of research."
     },
     {
@@ -47,8 +47,8 @@
       "slide_number": 7,
       "start": "06:19",
       "end": "07:02",
-      "slide_summary": "The speaker introduces the question of why discrimination is not easier than generation and connects it to a sub-hypothesis about autoregressive training being more generation-like. They cite experiments on FLANUR2 and FLANTIFI, noting that both models are not purely autoregressively pretrained, and say the results support the hypothesis because their DGDIF values are sufficiently large.",
-      "speaker_notes": "This slide frames a contradiction around discrimination versus generation, then motivates it with a training-process hypothesis. It briefly reports supporting evidence from FLANUR2 and FLANTIFI before transitioning back to the contradiction."
+      "slide_summary": "The speaker introduces the question of why discrimination is not easier than generation and connects it to a sub-hypothesis about autoregressive training being more generation-like. They cite experiments on FLAN-UL2 and FLAN-T5, noting that both models are not purely autoregressively pretrained, and say the results support the hypothesis because their DGDIF values are sufficiently large.",
+      "speaker_notes": "This slide frames a contradiction around discrimination versus generation, then motivates it with a training-process hypothesis. It briefly reports supporting evidence from FLAN-UL2 and FLAN-T5 before transitioning back to the contradiction."
     },
     {
       "slide_number": 8,
