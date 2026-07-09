@@ -1,0 +1,12 @@
+{
+  "total_slides": 1,
+  "slides": [
+    {
+      "slide_number": 1,
+      "start": "00:00",
+      "end": "11:35",
+      "slide_summary": "Detected slide interval 1 from 00:00 to 11:35. Visual OCR is not performed in the deterministic fallback.",
+      "speaker_notes": "Audio extraction unavailable for video.mp4: imageio-ffmpeg is not installed; audio extraction was skipped."
+    }
+  ]
+}

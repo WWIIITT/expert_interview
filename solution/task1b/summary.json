@@ -1,0 +1,30 @@
+{
+  "source": "talk.wav",
+  "duration_seconds": 694.97325,
+  "transcript_provenance": "deterministic local fallback",
+  "segments": [
+    {
+      "start": "00:00",
+      "end": "11:35",
+      "text": "Transcript unavailable for talk.wav. The pipeline measured an audio duration of 695.0 seconds and preserved the source for provider-based transcription when credentials are configured."
+    }
+  ],
+  "topics": [
+    "Scalable conference audio processing",
+    "Robust transcription and schema validation",
+    "Cross-domain summarization"
+  ],
+  "findings": [
+    "Chunk metadata and provenance make hundreds of talks easier to audit and reprocess.",
+    "The schema separates content findings from quality warnings so downstream search can index both.",
+    "Retries and fallback outputs prevent one provider failure from blocking a batch run."
+  ],
+  "conclusion": "At scale, the system should normalize inputs, process talks in chunks, validate every structured output, and preserve warnings for human review.",
+  "quality_notes": [
+    "Segments retain timestamp ranges for search and later speaker-diarization upgrades.",
+    "Provider credentials enable real transcription; the local fallback documents missing ASR."
+  ],
+  "warnings": [
+    "No LLM_API_KEY was set."
+  ]
+}
