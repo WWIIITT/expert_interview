@@ -53,9 +53,11 @@ Expected generated files:
 
 ## Approach
 
-Each task directory contains its own pipeline code so the submission follows the requested structure directly. Provider chat calls target an OpenAI-compatible `/chat/completions` endpoint. Audio transcription targets an OpenAI-compatible `/audio/transcriptions` endpoint when credentials are configured.
+Each task directory contains its own pipeline code so the submission follows the requested structure directly. Provider chat calls target an OpenAI-compatible `/chat/completions` endpoint, and audio transcription targets an OpenAI-compatible `/audio/transcriptions` endpoint when credentials are configured.
 
-Task 2 uses `imageio-ffmpeg` to extract audio through a bundled FFmpeg binary and OpenCV to sample frames for slide-change detection. If optional media dependencies or credentials are missing, the scripts still generate deterministic, schema-valid fallback outputs with warnings instead of crashing.
+Task 1a transcribes `talk.wav` and asks the LLM for a compact conference summary. Task 1b runs the evolved audio pipeline on the same input and writes the broader schema required for scaled processing. Task 2 extracts audio from `video.mp4`, detects slide ranges with OpenCV frame differences, aligns transcript text to those ranges, and writes a slide-by-slide report.
+
+For Task 1b's architectural reasoning, schema design, failure mode analysis, and tradeoff discussion, see `solution/task1b/DESIGN.md`.
 
 ## What Worked
 
@@ -68,6 +70,7 @@ Task 2 uses `imageio-ffmpeg` to extract audio through a bundled FFmpeg binary an
 - The deterministic fallback does not perform real speech recognition; high-quality summaries require configured provider credentials.
 - Slide detection is image-difference based, so subtle animations or camera movement can create false positives or missed slide changes.
 - The video pipeline does not perform OCR over slide frames; visual slide summaries are based on detected intervals and LLM text summarization.
+- Detailed Task 1b scaling tradeoffs are intentionally kept in `solution/task1b/DESIGN.md` to avoid duplicating the design document.
 
 ## What I Would Improve with More Time
 
@@ -75,5 +78,3 @@ Task 2 uses `imageio-ffmpeg` to extract audio through a bundled FFmpeg binary an
 - Add OCR for slide text and combine visual text with transcript notes.
 - Store intermediate transcripts and frame thumbnails for audit and reprocessing.
 - Add batch orchestration with resumable job state and per-talk retry budgets.
-
-For Task 1b's architectural reasoning, schema design, failure modes, and tradeoff discussion, see `solution/task1b/DESIGN.md`.
